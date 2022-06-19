@@ -10,4 +10,19 @@ const scrollBtnState = atom({
   default: 0,
 });
 
-export { scrollState, scrollBtnState };
+const emailState = atom({
+  key: "emailState",
+  default: "",
+});
+
+const pwState = atom({
+  key: "pwState",
+  default: "",
+});
+
+const rememberState = atom({
+  key: "rememberState",
+  default: "",
+});
+
+export { scrollState, scrollBtnState, emailState, pwState, rememberState };

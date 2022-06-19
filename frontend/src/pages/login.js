@@ -1,7 +1,31 @@
 import Link from "next/link";
 import { LockClosedIcon } from "@heroicons/react/solid";
+import { useRecoilState } from "recoil";
+import { emailState, pwState, rememberState } from "components/states";
 
 const Login = () => {
+  const [email, setEmail] = useRecoilState(emailState);
+  const [pw, setPW] = useRecoilState(pwState);
+  const [remember, setRemember] = useRecoilState(rememberState);
+
+  const submitLogin = async (e) => {
+    alert(`이메일 : ${email}, 비밀번호 : ${pw} -> 로그인 버튼 누름`);
+    // 로그인 API
+  };
+
+  const getRemember = async (e) => {
+    console.log(e.target.value);
+    setRemember(e.target.value);
+  };
+
+  const getEmail = async (e) => {
+    setEmail(e.target.value);
+  };
+
+  const getPassward = async (e) => {
+    setPW(e.target.value);
+  };
+
   return (
     <>
       <div className="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
@@ -36,6 +60,7 @@ const Login = () => {
                   required
                   className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   placeholder="이메일 입력"
+                  onChange={getEmail}
                 />
               </div>
               <div>
@@ -50,6 +75,7 @@ const Login = () => {
                   required
                   className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   placeholder="비밀번호 입력"
+                  onChange={getPassward}
                 />
               </div>
             </div>
@@ -60,10 +86,12 @@ const Login = () => {
                 name="remember-me"
                 type="checkbox"
                 className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
+                onClick={getRemember}
               />
               <label
                 htmlFor="remember-me"
-                className="ml-2 block text-sm text-gray-900">
+                className="ml-2 block text-sm text-gray-900"
+              >
                 자동 로그인
               </label>
             </div>
@@ -71,7 +99,9 @@ const Login = () => {
             <div>
               <button
                 type="submit"
-                className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                onClick={submitLogin}
+                className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              >
                 <span className="absolute left-0 inset-y-0 flex items-center pl-3">
                   <LockClosedIcon
                     className="h-5 w-5 text-indigo-500 group-hover:text-indigo-400"
@@ -84,15 +114,19 @@ const Login = () => {
             <div className="text-center text-sm font-medium">
               <div className="flex w-10/12 m-auto justify-center">
                 <p className="w-7/12 text-gray-500">아직 계정이 없으신가요?</p>
-                <a href="#" className="w-5/12 text-black hover:font-bold">
-                  계정 생성
-                </a>
+                <Link href="/signup">
+                  <p className="w-5/12 text-black cursor-pointer hover:font-bold">
+                    계정 생성
+                  </p>
+                </Link>
               </div>
               <div className="flex py-2 w-10/12 m-auto justify-center">
                 <p className="w-7/12 text-gray-500">비밀번호를 잊으셨나요?</p>
-                <a href="#" className="w-5/12 text-black hover:font-bold">
-                  비밀번호 찾기
-                </a>
+                <Link href="/findpassword">
+                  <p className="w-5/12 text-black cursor-pointer hover:font-bold">
+                    비밀번호 찾기
+                  </p>
+                </Link>
               </div>
             </div>
           </form>
