@@ -1,4 +1,11 @@
-## COPA ( Coding taPA )
+## COPA ( COding taPA )
+
+---
+
+### Tools
+
+- FE : ReactJS, NextJS, Tailwind CSS
+- BE : NodeJS, Express, AWS EC2
 
 ---
 
