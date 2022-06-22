@@ -5,7 +5,7 @@
 ### Tools
 
 - FE : ReactJS, NextJS, Tailwind CSS
-- BE : NodeJS, Express, AWS EC2
+- BE : NodeJS, Express, AWS EC2, Route53
 
 ---
 
