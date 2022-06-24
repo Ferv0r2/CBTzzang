@@ -8,8 +8,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        main: "#0d0222",
-        light_gray: "#b5b2bc",
+        main: "#eff2fe",
+        point: "#214af7",
+        "semi-black": "#222222",
+        "light-gray": "#f2f2f2",
+        "semi-gray": "#999999",
         hover_pink: "#d52e82",
         box_text: "#fbd9ff",
         top_gray: "#a3a3a3",
@@ -29,6 +32,9 @@ module.exports = {
       },
       right: {
         "-16": "-4rem",
+      },
+      boxShadow: {
+        card: "0px 10px 18px 0 rgba(4, 9, 28, 0.04)",
       },
     },
   },
