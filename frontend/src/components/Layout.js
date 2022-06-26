@@ -3,7 +3,7 @@ import Head from "next/head";
 import Image from "next/image";
 
 import Nav from "components/Nav";
-// import Footer from "components/Footer";
+import Footer from "components/Footer";
 
 import { useRecoilState } from "recoil";
 import { scrollState, scrollBtnState } from "components/states";
@@ -62,7 +62,7 @@ const Layout = ({ children }) => {
       </Head>
       <Nav />
       <main>{children}</main>
-      {/* <Footer /> */}
+      <Footer />
       {scrollBtn ? (
         <div className="sticky right-8 bottom-8 ">
           <div className="absolute right-8 bottom-0">
@@ -72,7 +72,7 @@ const Layout = ({ children }) => {
             >
               <Image layout="fill" src="/images/onTop.png" />
             </div>
-            <p className="text-top_gray text-center text-sm font-[GmarketSansBold]">
+            <p className="text-top_gray text-center text-sm font-bold font-[Play]">
               On Top
             </p>
           </div>

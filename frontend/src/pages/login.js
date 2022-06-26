@@ -28,12 +28,16 @@ const Login = () => {
 
   return (
     <div className="bg-main min-h-screen flex items-center justify-center py-32 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-xl bg-white w-full space-y-8 shadow-card rounded-lg font-[Pretendard]">
-        <section className="p-24">
-          <h2 className="text-center text-4xl font-extrabold text-gray-900">
+      <div className="max-w-[588px] bg-white w-full space-y-8 shadow-card rounded-lg font-[Pretendard]">
+        <section className="px-[108px] py-20">
+          <h2 className="text-center text-4xl font-extrabold text-semi-black">
             로그인
           </h2>
-          <form className="mt-16 space-y-6" action="#" method="POST">
+          <form
+            className="mt-16 space-y-6 text-semi-black"
+            action="#"
+            method="POST"
+          >
             <input type="hidden" name="remember" defaultValue="true" />
             <div className="-space-y-px">
               <div>
@@ -46,7 +50,7 @@ const Login = () => {
                   type="email"
                   autoComplete="email"
                   required
-                  className="appearance-none relative block w-full my-4 p-4 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 text-sm sm:text-base"
+                  className="appearance-none block w-full my-4 p-4 border border-gray-300 placeholder-gray-500 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 text-sm sm:text-base"
                   placeholder="이메일을 입력해주세요."
                   onChange={getEmail}
                 />
@@ -61,7 +65,7 @@ const Login = () => {
                   type="password"
                   autoComplete="current-password"
                   required
-                  className="appearance-none relative block w-full my-4 p-4 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 text-sm sm:text-base"
+                  className="appearance-none block w-full my-4 p-4 border border-gray-300 placeholder-gray-500 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 text-sm sm:text-base"
                   placeholder="비밀번호를 입력해주세요."
                   onChange={getPassward}
                 />
@@ -74,13 +78,10 @@ const Login = () => {
                   id="remember-me"
                   name="remember-me"
                   type="checkbox"
-                  className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300"
+                  className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
                   onClick={getRemember}
                 />
-                <label
-                  htmlFor="remember-me"
-                  className="ml-2 block text-base font-bold text"
-                >
+                <label htmlFor="remember-me" className="ml-2 block text-base">
                   자동 로그인
                 </label>
               </div>
@@ -93,11 +94,11 @@ const Login = () => {
               </div>
             </div>
 
-            <div className="pt-12">
+            <div className="pt-11">
               <button
                 type="submit"
                 onClick={submitLogin}
-                className="group relative w-full flex justify-center py-4 px-4 border border-transparent text-xl font-medium rounded-lg text-white bg-point hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                className="group w-full flex justify-center py-4 px-4 border border-transparent text-xl font-medium rounded-lg text-white bg-point hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
               >
                 로그인
               </button>
@@ -115,7 +116,7 @@ const Login = () => {
           </form>
           <div className="flex w-full text-center pt-14 pb-8">
             <div className="w-1/3 m-auto bg-light-gray h-px"></div>
-            <p className="w-1/3 m-1 text-semi-gray">SNS 계정 로그인</p>
+            <p className="w-1/3 m-1 text-sm text-semi-gray">SNS 계정 로그인</p>
             <div className="w-1/3 m-auto bg-light-gray h-px"></div>
           </div>
           <div>

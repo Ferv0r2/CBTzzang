@@ -13,11 +13,11 @@ const Nav = () => (
   <header className="bg-white sticky top-0 px-2 sm:px-6 lg:px-8 text-semi-black font-[Pretendard] z-99">
     <div className="max-w-7xl m-auto">
       <div className="relative flex items-center justify-between h-24">
-        <Link href="/">
-          <div className="flex w-2/12 m-auto cursor-pointer">
-            <img alt="logo" src="images/logo.png" />
-          </div>
-        </Link>
+        <div className="flex w-2/12 m-auto">
+          <Link href="/">
+            <img className="cursor-pointer" alt="logo" src="images/logo.png" />
+          </Link>
+        </div>
         <nav className="w-8/12 m-auto justify-center items-center flex text-lg font-bold">
           {navigation.map((item) => (
             <Link key={item.name} href={item.href}>

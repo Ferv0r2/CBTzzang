@@ -13,7 +13,7 @@ module.exports = {
         "semi-black": "#222222",
         "light-gray": "#f2f2f2",
         "semi-gray": "#999999",
-        hover_pink: "#d52e82",
+        "deep-blue": "#1f2441",
         box_text: "#fbd9ff",
         top_gray: "#a3a3a3",
         tahiti: "#3ab7bf",

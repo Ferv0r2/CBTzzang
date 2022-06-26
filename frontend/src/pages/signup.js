@@ -3,6 +3,7 @@ import { LockClosedIcon } from "@heroicons/react/solid";
 import { useState } from "react";
 
 const SignUp = () => {
+  const [nickname, setNickName] = useState("");
   const [email, setEmail] = useState("");
   const [checkEmail, setCheckEmail] = useState("");
   const [pw, setPW] = useState("");
@@ -18,6 +19,10 @@ const SignUp = () => {
 
   const getAgree = (e) => {
     setAgree(e.target.value);
+  };
+
+  const getNickName = (e) => {
+    setNickName(e.target.value);
   };
 
   const getEmail = (e) => {
@@ -48,31 +53,41 @@ const SignUp = () => {
   };
 
   return (
-    <>
-      <div className="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-md w-full space-y-8">
-          <Link href="/">
-            <div className="flex py-1 w-24 rounded-lg text-indigo-600 text-center text-sm font-bold cursor-pointer hover:text-indigo-500">
-              <p>BACK</p>
-            </div>
-          </Link>
-          <div>
-            <img
-              className="mx-auto h-12 w-auto"
-              src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
-              alt="Workflow"
-            />
-            <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-              Sign Up
-            </h2>
-          </div>
-          <form className="mt-8 space-y-6" action="#" method="POST">
+    <div className="bg-main min-h-screen flex items-center justify-center py-32 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[588px] bg-white w-full space-y-8 shadow-card rounded-lg font-[Pretendard]">
+        <section className="px-[108px] py-20">
+          <h2 className="text-center text-4xl font-extrabold text-semi-black">
+            회원가입
+          </h2>
+          <form
+            className="mt-16 space-y-6 text-semi-black"
+            action="#"
+            method="POST"
+          >
             <input type="hidden" name="remember" defaultValue="true" />
             <div>
               <div className="py-2">
-                <label htmlFor="email-address" className="text-sm p-1">
+                <p htmlFor="nickname" className="font-[Pretendard] text-lg">
+                  닉네임
+                </p>
+                <input
+                  id="nickname"
+                  name="nickname"
+                  type="nickname"
+                  autoComplete="current-nickname"
+                  required
+                  className="appearance-none block w-full my-4 p-4 border border-gray-300 placeholder-gray-500 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 text-sm sm:text-base"
+                  placeholder="닉네임을 입력해 주세요."
+                  onChange={getNickName}
+                />
+              </div>
+              <div className="py-2">
+                <p
+                  htmlFor="email-address"
+                  className="font-[Pretendard] text-lg"
+                >
                   이메일
-                </label>
+                </p>
                 <div className="flex">
                   <input
                     id="email-address"
@@ -80,21 +95,24 @@ const SignUp = () => {
                     type="email"
                     autoComplete="email"
                     required
-                    className="appearance-none relative block w-3/4 m-auto px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                    placeholder="이메일 입력"
+                    className="appearance-none block w-2/3 m-auto my-4 p-4 border border-gray-300 placeholder-gray-500 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 text-sm sm:text-base"
+                    placeholder="이메일을 입력해 주세요."
                     onChange={getEmail}
                   />
-                  <div className="w-1/4 m-auto text-right">
-                    <button className="w-3/4 bg-indigo-600 p-2 text-sm text-white rounded-lg hover:bg-indigo-500">
+                  <div className="w-1/3 m-auto text-right">
+                    <button className="w-28 bg-point p-4 my-4 text-white text-lg rounded-lg hover:bg-blue-500">
                       전송
                     </button>
                   </div>
                 </div>
               </div>
               <div className="py-2">
-                <label htmlFor="email-address" className="text-sm p-1">
+                <p
+                  htmlFor="email-address"
+                  className="font-[Pretendard] text-lg"
+                >
                   이메일 인증
-                </label>
+                </p>
                 <div className="flex">
                   <input
                     id="email-check"
@@ -102,107 +120,142 @@ const SignUp = () => {
                     type="email"
                     autoComplete="email"
                     required
-                    className="appearance-none relative block w-3/4 m-auto px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                    placeholder="이메일 인증코드 입력"
+                    className="appearance-none block w-2/3 m-auto my-4 p-4 border border-gray-300 placeholder-gray-500 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 text-sm sm:text-base"
+                    placeholder="이메일 인증코드를 입력해 주세요."
                     onChange={getCheckEmail}
                   />
-                  <div className="w-1/4 m-auto text-right">
-                    <button className="w-3/4 bg-indigo-600 p-2 text-sm text-white rounded-lg hover:bg-indigo-500">
+                  <div className="w-1/3 m-auto text-right">
+                    <button className="w-28 bg-point p-4 my-4 text-white text-lg rounded-lg hover:bg-blue-600">
                       확인
                     </button>
                   </div>
                 </div>
               </div>
               <div className="py-2">
-                <label htmlFor="password" className="text-sm p-1">
+                <p htmlFor="password" className="font-[Pretendard] text-lg">
                   비밀번호
-                </label>
+                </p>
                 <input
                   id="password"
                   name="password"
                   type="password"
                   autoComplete="current-password"
                   required
-                  className="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                  placeholder="비밀번호 입력"
+                  className="appearance-none block w-full mt-4 mb-2 p-4 border border-gray-300 placeholder-gray-500 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 text-sm sm:text-base"
+                  placeholder="비밀번호를 입력해 주세요."
                   onChange={getPassword}
                 />
+                <p className="text-sm text-[#666] mb-2">
+                  영문, 숫자 조합 8~16자리
+                </p>
               </div>
               <div className="py-2">
-                <label htmlFor="password" className="text-sm p-1">
+                <p htmlFor="password" className="font-[Pretendard] text-lg">
                   비밀번호 확인
-                </label>
-                <input
-                  id="password-check"
-                  name="password"
-                  type="password"
-                  autoComplete="current-password"
-                  required
-                  className="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                  placeholder="비밀번호 확인"
-                  onChange={getCheckPassword}
-                />
-              </div>
-
-              <div className="text-sm mx-1">
+                </p>
+                {pw === "" ? (
+                  <input
+                    id="password-check"
+                    name="password"
+                    type="password"
+                    autoComplete="current-password"
+                    required
+                    value={checkPW}
+                    className="appearance-none block w-full mt-4 mb-2 p-4 border border-gray-300 placeholder-gray-500 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 text-sm sm:text-base"
+                    placeholder="비밀번호를 한 번 더 입력해 주세요."
+                    onChange={getCheckPassword}
+                  />
+                ) : (
+                  ""
+                )}
                 {isSamePW && pw !== "" ? (
-                  <p className="text-green-600">비밀번호가 일치합니다.</p>
+                  <input
+                    id="password-check"
+                    name="password"
+                    type="password"
+                    autoComplete="current-password"
+                    required
+                    value={checkPW}
+                    className="appearance-none block w-full mt-4 mb-2 p-4 border border-gray-300 placeholder-gray-500 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500 focus:z-10 text-sm sm:text-base"
+                    placeholder="비밀번호를 한 번 더 입력해 주세요."
+                    onChange={getCheckPassword}
+                  />
                 ) : (
                   ""
                 )}
                 {!isSamePW && pw !== "" ? (
-                  <p className="text-red-600">비밀번호가 틀립니다.</p>
+                  <input
+                    id="password-check"
+                    name="password"
+                    type="password"
+                    autoComplete="current-password"
+                    required
+                    value={checkPW}
+                    className="appearance-none block w-full mt-4 mb-2 p-4 border border-gray-300 placeholder-gray-500 rounded-md focus:outline-none focus:ring-red-500 focus:border-red-500 focus:z-10 text-sm sm:text-base"
+                    placeholder="비밀번호를 한 번 더 입력해 주세요."
+                    onChange={getCheckPassword}
+                  />
+                ) : (
+                  ""
+                )}
+              </div>
+
+              <div className="text-sm mx-1">
+                {isSamePW && pw !== "" ? (
+                  <p className="text-green-600 mb-2">비밀번호가 일치합니다.</p>
+                ) : (
+                  ""
+                )}
+                {!isSamePW && pw !== "" ? (
+                  <div className="flex items-center mb-2">
+                    <img className="w-4 h-4" alt="err" src="images/ic.png" />
+                    <p className="ml-2 text-red-600">비밀번호가 틀립니다.</p>
+                  </div>
                 ) : (
                   ""
                 )}
               </div>
             </div>
-
-            <div className="flex items-center">
-              <input
-                id="remember-me"
-                name="remember-me"
-                type="checkbox"
-                className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
-                onClick={getAgree}
-              />
-              <label
-                htmlFor="remember-me"
-                className="ml-2 block text-sm text-gray-900"
-              >
-                이용약관 및 개인정보 처리방침에 동의합니다.
-              </label>
+            <div className="flex items-center justify-between">
+              <div className="flex items-center">
+                <input
+                  id="remember-me"
+                  name="remember-me"
+                  type="checkbox"
+                  className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+                  onClick={getAgree}
+                />
+                <label
+                  htmlFor="remember-me"
+                  className="ml-2 block text-[#333] text-base"
+                >
+                  이용약관 및 개인 정보 처리 방침에 동의합니다.
+                </label>
+              </div>
             </div>
-
-            <div>
+            <div className="pt-11">
               <button
                 type="submit"
                 onClick={submitSignUp}
-                className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                className="group w-full flex justify-center py-4 px-4 border border-transparent text-xl font-medium rounded-lg text-white bg-point hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
               >
-                <span className="absolute left-0 inset-y-0 flex items-center pl-3">
-                  <LockClosedIcon
-                    className="h-5 w-5 text-indigo-500 group-hover:text-indigo-400"
-                    aria-hidden="true"
-                  />
-                </span>
-                계정 생성
+                가입하기
               </button>
             </div>
-            <div className="text-center text-sm font-medium">
+            <div className="text-center pt-1.5">
               <div className="flex w-10/12 m-auto justify-center">
-                <p className="w-7/12 text-gray-500">이미 계정이 있으신가요?</p>
+                <p className="w-7/12 text-gray-500">계정이 있으신가요?</p>
                 <Link href="/login">
-                  <p className="w-5/12 text-black cursor-pointer hover:font-bold">
-                    로그인
+                  <p className="w-5/12 text-point cursor-pointer font-bold underline underline-offset-2">
+                    로그인 하기
                   </p>
                 </Link>
               </div>
             </div>
           </form>
-        </div>
+        </section>
       </div>
-    </>
+    </div>
   );
 };
 export default SignUp;
