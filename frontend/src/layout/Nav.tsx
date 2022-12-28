@@ -1,6 +1,9 @@
 import React from "react";
 import Link from "next/link";
 
+/* Component */
+import { AutoImage } from "utils";
+
 const navigation = [
   { name: "문제집", href: "/cbt" },
   { name: "랭킹", href: "/ranking" },
@@ -15,7 +18,13 @@ const Nav = () => (
       <div className="relative flex items-center justify-between h-24">
         <div className="flex w-2/12 m-auto">
           <Link href="/">
-            <img className="cursor-pointer" alt="logo" src="images/logo.png" />
+            <div className="relative w-32 h-5">
+              <AutoImage
+                className="cursor-pointer"
+                alt="logo"
+                src="images/logo.png"
+              />
+            </div>
           </Link>
         </div>
         <nav className="w-8/12 m-auto justify-center items-center flex text-lg font-bold">
@@ -30,20 +39,26 @@ const Nav = () => (
         <div className="flex w-2/12 m-auto text-base items-center justify-center font-semibold">
           <Link href="/login">
             <div className="flex m-auto hover:text-gray-600 cursor-pointer">
-              <img
-                src="images/ic-login.png"
-                className="h-6 w-6 m-auto"
-                aria-hidden="true"
-              />
+              <div className="relative w-6 h-6">
+                <AutoImage
+                  src="images/ic-login.png"
+                  className="h-6 w-6"
+                  alt="icon"
+                  aria-hidden="true"
+                />
+              </div>
               <p className="px-3">로그인</p>
             </div>
           </Link>
           <div className="flex m-auto hover:text-gray-600 cursor-pointer">
-            <img
-              src="images/ic-alarm.png"
-              className="h-6 w-6 mt-0.5 m-auto"
-              aria-hidden="true"
-            />
+            <div className="relative w-6 h-6">
+              <AutoImage
+                src="images/ic-alarm.png"
+                className="h-6 w-6 mt-0.5 m-auto"
+                alt="icon"
+                aria-hidden="true"
+              />
+            </div>
             <p className="px-3">알림</p>
           </div>
         </div>
@@ -52,4 +67,4 @@ const Nav = () => (
   </header>
 );
 
-export default Nav;
+export { Nav };

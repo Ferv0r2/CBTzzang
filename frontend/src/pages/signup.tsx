@@ -1,8 +1,14 @@
+import React, { useState } from "react";
+import { NextPage } from "next/types";
 import Link from "next/link";
-import { LockClosedIcon } from "@heroicons/react/solid";
-import { useState } from "react";
 
-const SignUp = () => {
+/* Icon */
+import { LockClosedIcon } from "@heroicons/react/solid";
+
+/* Component */
+import { AutoImage } from "utils";
+
+const SignUp: NextPage = () => {
   const [nickname, setNickName] = useState("");
   const [email, setEmail] = useState("");
   const [checkEmail, setCheckEmail] = useState("");
@@ -12,40 +18,40 @@ const SignUp = () => {
   const [isSameEmail, setSameEmail] = useState(false);
   const [isSamePW, setSamePW] = useState(false);
 
-  const submitSignUp = async (e) => {
+  const submitSignUp = async (e: any) => {
     alert(`이메일 : ${email}, 비밀번호 : ${pw} -> 회원가입 버튼 누름`);
     // 회원가입 API
   };
 
-  const getAgree = (e) => {
+  const getAgree = (e: any) => {
     setAgree(e.target.value);
   };
 
-  const getNickName = (e) => {
+  const getNickName = (e: any) => {
     setNickName(e.target.value);
   };
 
-  const getEmail = (e) => {
+  const getEmail = (e: any) => {
     setEmail(e.target.value);
   };
 
-  const getCheckEmail = (e) => {
+  const getCheckEmail = (e: any) => {
     setCheckEmail(e.target.value);
   };
 
-  const getSameEmail = (e) => {
+  const getSameEmail = (e: any) => {
     // 이메일 인증 여부 확인 후
     setSameEmail(true);
   };
 
-  const getPassword = (e) => {
+  const getPassword = (e: any) => {
     setPW(e.target.value);
     pw !== "" && checkPW !== "" && e.target.value === checkPW
       ? setSamePW(true)
       : setSamePW(false);
   };
 
-  const getCheckPassword = (e) => {
+  const getCheckPassword = (e: any) => {
     setCheckPW(e.target.value);
     pw !== "" && checkPW !== "" && pw === e.target.value
       ? setSamePW(true)
@@ -67,9 +73,9 @@ const SignUp = () => {
             <input type="hidden" name="remember" defaultValue="true" />
             <div>
               <div className="py-2">
-                <p htmlFor="nickname" className="font-[Pretendard] text-lg">
+                <label htmlFor="nickname" className="font-[Pretendard] text-lg">
                   닉네임
-                </p>
+                </label>
                 <input
                   id="nickname"
                   name="nickname"
@@ -82,12 +88,12 @@ const SignUp = () => {
                 />
               </div>
               <div className="py-2">
-                <p
+                <label
                   htmlFor="email-address"
                   className="font-[Pretendard] text-lg"
                 >
                   이메일
-                </p>
+                </label>
                 <div className="flex">
                   <input
                     id="email-address"
@@ -107,12 +113,12 @@ const SignUp = () => {
                 </div>
               </div>
               <div className="py-2">
-                <p
+                <label
                   htmlFor="email-address"
                   className="font-[Pretendard] text-lg"
                 >
                   이메일 인증
-                </p>
+                </label>
                 <div className="flex">
                   <input
                     id="email-check"
@@ -132,9 +138,9 @@ const SignUp = () => {
                 </div>
               </div>
               <div className="py-2">
-                <p htmlFor="password" className="font-[Pretendard] text-lg">
+                <label htmlFor="password" className="font-[Pretendard] text-lg">
                   비밀번호
-                </p>
+                </label>
                 <input
                   id="password"
                   name="password"
@@ -150,9 +156,9 @@ const SignUp = () => {
                 </p>
               </div>
               <div className="py-2">
-                <p htmlFor="password" className="font-[Pretendard] text-lg">
+                <label htmlFor="password" className="font-[Pretendard] text-lg">
                   비밀번호 확인
-                </p>
+                </label>
                 {pw === "" ? (
                   <input
                     id="password-check"
@@ -208,7 +214,11 @@ const SignUp = () => {
                 )}
                 {!isSamePW && pw !== "" ? (
                   <div className="flex items-center mb-2">
-                    <img className="w-4 h-4" alt="err" src="images/ic.png" />
+                    <AutoImage
+                      className="w-4 h-4"
+                      alt="err"
+                      src="images/ic.png"
+                    />
                     <p className="ml-2 text-red-600">비밀번호가 틀립니다.</p>
                   </div>
                 ) : (

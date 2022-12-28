@@ -1,8 +1,12 @@
-/* This example requires Tailwind CSS v2.0+ */
-import { Fragment } from "react";
+import React, { FC, Fragment } from "react";
+import Link from "next/link";
+
+/* Icon */
 import { Popover, Transition } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
-import Link from "next/link";
+
+/* Component */
+import { AutoImage } from "utils";
 
 const navigation = [
   { name: "Product", href: "#" },
@@ -11,8 +15,8 @@ const navigation = [
   { name: "Company", href: "#" },
 ];
 
-const Section = () => {
-  const info = (e) => {
+const Section: FC = () => {
+  const info = (e: any) => {
     alert("준비중입니다.");
   };
 
@@ -57,9 +61,8 @@ const Section = () => {
               >
                 <div className="rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
                   <div className="px-5 pt-4 flex items-center justify-between">
-                    <div>
-                      <img
-                        className="h-8 w-auto"
+                    <div className="relative h-8">
+                      <AutoImage
                         src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
                         alt=""
                       />
@@ -131,14 +134,16 @@ const Section = () => {
         </div>
       </div>
       <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-        <img
-          className="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
-          src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80"
-          alt=""
-        />
+        <div className="relative w-full h-56 sm:h-72 md:h-96 lg:w-full lg:h-full">
+          <AutoImage
+            className="object-cover"
+            src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80"
+            alt="banner"
+          />
+        </div>
       </div>
     </div>
   );
 };
 
-export default Section;
+export { Section };

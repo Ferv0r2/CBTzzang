@@ -1,7 +1,7 @@
-import React from "react";
+import React, { FC } from "react";
 import Link from "next/link";
 
-const Footer = () => {
+const Footer: FC = () => {
   return (
     <footer className="bg-deep-blue text-white">
       <div className="max-w-7xl m-auto py-[60px]">
@@ -24,4 +24,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export { Footer };

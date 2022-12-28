@@ -1,21 +1,25 @@
+import React from "react";
+import { NextPage } from "next/types";
 import Link from "next/link";
-import { useRecoilState } from "recoil";
-import { emailState, pwState, rememberState } from "components/states";
 
-const FindPW = () => {
+/* State */
+import { useRecoilState } from "recoil";
+import { emailState, pwState, rememberState } from "stores";
+
+const FindPW: NextPage = () => {
   const [email, setEmail] = useRecoilState(emailState);
   const [pw, setPW] = useRecoilState(pwState);
 
-  const sendEmail = async (e) => {
+  const sendEmail = async (e: any) => {
     alert(`이메일 : ${email}, 비밀번호 : ${pw} -> 로그인 버튼 누름`);
     // 이메일 전송 API
   };
 
-  const getEmail = async (e) => {
+  const getEmail = async (e: any) => {
     setEmail(e.target.value);
   };
 
-  const getPassward = async (e) => {
+  const getPassward = async (e: any) => {
     setPW(e.target.value);
   };
 

@@ -1,30 +1,42 @@
+import React from "react";
+import { NextPage } from "next/types";
 import Link from "next/link";
-import { LockClosedIcon } from "@heroicons/react/solid";
-import { useRecoilState } from "recoil";
-import { emailState, pwState, rememberState } from "components/states";
 
-const Login = () => {
+/* Icon */
+import { LockClosedIcon } from "@heroicons/react/solid";
+
+/* Component */
+import { AutoImage } from "utils";
+
+/* State */
+import { useRecoilState } from "recoil";
+import { emailState, pwState, rememberState } from "stores";
+import { v1 } from "uuid";
+
+const Login: NextPage = () => {
   const [email, setEmail] = useRecoilState(emailState);
   const [pw, setPW] = useRecoilState(pwState);
   const [remember, setRemember] = useRecoilState(rememberState);
 
-  const submitLogin = async (e) => {
+  const submitLogin = async (e: any) => {
     alert(`이메일 : ${email}, 비밀번호 : ${pw} -> 로그인 버튼 누름`);
     // 로그인 API
   };
 
-  const getRemember = async (e) => {
+  const getRemember = async (e: any) => {
     console.log(e.target.value);
     setRemember(e.target.value);
   };
 
-  const getEmail = async (e) => {
+  const getEmail = async (e: any) => {
     setEmail(e.target.value);
   };
 
-  const getPassward = async (e) => {
+  const getPassward = async (e: any) => {
     setPW(e.target.value);
   };
+
+  const socials = ["facebook", "naver", "google"];
 
   return (
     <div className="bg-main min-h-screen flex items-center justify-center py-32 px-4 sm:px-6 lg:px-8">
@@ -107,7 +119,7 @@ const Login = () => {
               <div className="flex w-10/12 m-auto justify-center">
                 <p className="w-7/12 text-gray-500">계정이 없으신가요?</p>
                 <Link href="/signup">
-                  <p className="w-5/12 text-point cursor-pointer font-bold underline underline-offset-2">
+                  <p className="text-point cursor-pointer font-bold underline underline-offset-2">
                     회원 가입하기
                   </p>
                 </Link>
@@ -120,16 +132,14 @@ const Login = () => {
             <div className="w-1/3 m-auto bg-light-gray h-px"></div>
           </div>
           <div>
-            <ul className="flex justify-center">
-              <li className="m-2 p-2">
-                <img src="images/ic-facebook.png" alt="facebook" />
-              </li>
-              <li className="m-2 p-2">
-                <img src="images/ic-naver.png" alt="naver" />
-              </li>
-              <li className="m-2 p-2">
-                <img src="images/ic-google.png" alt="google" />
-              </li>
+            <ul className="mt-2 grid grid-cols-3 gap-4 pb-2 justify-center">
+              {socials.map((v: string) => (
+                <li key={v1()}>
+                  <div className="relative w-12 h-12 mx-auto">
+                    <AutoImage src={`images/ic-${v}.png`} alt={v} />
+                  </div>
+                </li>
+              ))}
             </ul>
           </div>
         </section>

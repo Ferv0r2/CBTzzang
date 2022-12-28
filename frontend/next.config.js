@@ -1,15 +1,17 @@
 /** @type {import('next').NextConfig} */
-
-const isProd = (process.env.NODE_ENV || "production") === "production";
-const assetPrefix = isProd ? "https://cbtzzang.shop" : "";
+const removeImports = require("next-remove-imports")();
 
 const nextConfig = {
+  baseUrl: "src",
   reactStrictMode: true,
-  assetPrefix: assetPrefix,
+  swcMinify: true,
   images: {
     loader: "akamai",
-    path: "",
+    path: "/",
+    unoptimized: true,
   },
 };
 
-module.exports = nextConfig;
+module.exports = removeImports({
+  ...nextConfig,
+});

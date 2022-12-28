@@ -1,7 +1,7 @@
-import React from "react";
+import React, { FC } from "react";
 import Image from "next/image";
 
-const Loading = () => {
+const Loading: FC = () => {
   return (
     <div className="relative flex w-7 h-7 animate-spin">
       <Image
@@ -14,4 +14,4 @@ const Loading = () => {
   );
 };
 
-export default Loading;
+export { Loading };
