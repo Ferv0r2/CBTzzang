@@ -1,1 +1,5 @@
-# Connectivity Practive
+# Connectivity Practice
+
+- Frontend : ReactJS, NextJS, TypeScript, TailwindCSS
+
+- Backend : Express, Mysql
