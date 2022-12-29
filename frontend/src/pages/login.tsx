@@ -12,6 +12,7 @@ import { AutoImage } from "utils";
 import { useRecoilState } from "recoil";
 import { emailState, pwState, rememberState } from "stores";
 import { v1 } from "uuid";
+import { GetUsersAPI } from "~/api";
 
 const Login: NextPage = () => {
   const [email, setEmail] = useRecoilState(emailState);
@@ -19,8 +20,9 @@ const Login: NextPage = () => {
   const [remember, setRemember] = useRecoilState(rememberState);
 
   const submitLogin = async (e: any) => {
-    alert(`이메일 : ${email}, 비밀번호 : ${pw} -> 로그인 버튼 누름`);
-    // 로그인 API
+    const a = await GetUsersAPI();
+    console.log(a);
+    return;
   };
 
   const getRemember = async (e: any) => {
@@ -42,7 +44,10 @@ const Login: NextPage = () => {
     <div className="bg-main min-h-screen flex items-center justify-center py-32 px-4 sm:px-6 lg:px-8">
       <div className="max-w-[588px] bg-white w-full space-y-8 shadow-card rounded-lg font-[Pretendard]">
         <section className="px-[108px] py-20">
-          <h2 className="text-center text-4xl font-extrabold text-semi-black">
+          <h2
+            onClick={submitLogin}
+            className="text-center text-4xl font-extrabold text-semi-black"
+          >
             로그인
           </h2>
           <form
